@@ -1,0 +1,22 @@
+.wrapper{
+    margin-bottom: 10px;
+}
+.digits{
+    display: flex;
+    justify-content: center;
+}
+.label{
+    margin-top: -5px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 300;
+    color: #d854c4;
+    font-family: RobotoThin, sans-serif;
+}
+
+@media (orientation: landscape) {
+    .label{
+        margin-top: 0;
+        font-size: 16px;
+    }
+}

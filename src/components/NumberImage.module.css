@@ -1,0 +1,28 @@
+.wrapper{
+    max-width: 30%;
+    position: relative;
+}
+
+svg {
+    height: auto;
+    width: 100%;
+}
+
+svg path{
+    stroke: #4b7cf5;
+}
+
+.svgAnim{
+    position: absolute;
+    left: 0;
+}
+
+.svgAnim path {
+    stroke-dasharray: 100;
+    animation: dash 1.2s linear infinite;
+    stroke: #b144a0;
+}
+
+@keyframes dash {
+    to { stroke-dashoffset: 400; }
+}

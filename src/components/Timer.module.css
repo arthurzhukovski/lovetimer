@@ -1,0 +1,35 @@
+.wrapper{
+    position: absolute;
+    padding: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timerElementsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (orientation: portrait) {
+    .timerElementsContainer.withMonths{
+        width: 80%;
+        margin: auto;
+    }
+    .timerElementsContainer.withYears{
+        width: 60%;
+        margin: auto;
+    }
+}
+
+@media (orientation: landscape) {
+    .timerElementsContainer{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
