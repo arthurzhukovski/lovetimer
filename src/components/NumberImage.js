@@ -19,7 +19,7 @@ const NumberImage = ({number}) => {
                         ease:window.Power3.easeInOut},'+=.5').play();
             }
         }
-    });
+    }, [number]);
     return (
         <div className={styles.wrapper}>
             <Number ref={numberRef}/>

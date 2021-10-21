@@ -8,7 +8,7 @@ const TimeElement = ({value, label}) => {
     const firstDigit = value?.toString().length > 1 ? value?.toString().slice(0, 1) : 0;
     const lastDigit = value?.toString().slice(-1);
     useEffect(() => {
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             if ((value >= 11 && value <= 19) || ['5','6','7','8','9','0'].indexOf(lastDigit) !== -1){
                 setLabels({
                     years: 'лет',
@@ -38,6 +38,9 @@ const TimeElement = ({value, label}) => {
                 })
             }
         }, 1000);
+        return () => {
+            clearTimeout(timeout);
+        }
     }, [value, lastDigit]);
 
 

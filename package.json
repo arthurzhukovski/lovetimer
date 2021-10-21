@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/web": "^9.3.0",
+    "@use-gesture/react": "^10.1.1",
     "cra-template": "1.1.2",
     "gsap": "^3.8.0",
     "moment": "^2.29.1",

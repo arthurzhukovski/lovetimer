@@ -17,15 +17,13 @@ const Timer = ({targetDateTimeString, textLabel}) => {
     return (
         <div className={styles.wrapper}>
             {textLabel ? <div className={styles.textLabel}>{textLabel}</div> : ''}
-            <div>
-                <div className={`${styles.timerElementsContainer} ${duration?.years() !== 0 ? styles.withYears : ''} ${duration?.months() !== 0 ? styles.withMonths : ''}` }>
-                    {duration?.years() !== 0 ? <TimeElement label='years' value={duration?.years()} /> : ''}
-                    {duration?.months() !== 0 ? <TimeElement label='months' value={duration?.months()} /> : ''}
-                    <TimeElement label='days' value={duration?.days()} />
-                    <TimeElement label='hours' value={duration?.hours()} />
-                    <TimeElement label='minutes' value={duration?.minutes()} />
-                    <TimeElement label='seconds' value={duration?.seconds()} />
-                </div>
+            <div className={`${styles.timerElementsContainer} ${duration?.years() !== 0 ? styles.withYears : ''} ${duration?.months() !== 0 ? styles.withMonths : ''}` }>
+                {duration?.years() !== 0 ? <TimeElement label='years' value={duration?.years()} /> : ''}
+                {duration?.months() !== 0 ? <TimeElement label='months' value={duration?.months()} /> : ''}
+                <TimeElement label='days' value={duration?.days()} />
+                <TimeElement label='hours' value={duration?.hours()} />
+                <TimeElement label='minutes' value={duration?.minutes()} />
+                <TimeElement label='seconds' value={duration?.seconds()} />
             </div>
         </div>
     );
