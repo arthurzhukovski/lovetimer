@@ -38,7 +38,7 @@ const TimeElement = ({value, label}) => {
                 })
             }
         }, 1000);
-    }, [value]);
+    }, [value, lastDigit]);
 
 
     return (

@@ -6,12 +6,11 @@ import TimeElement from './TimeElement';
 
 const Timer = ({targetDateTimeString, textLabel}) => {
     moment.locale('ru');
-    const initialMoment = moment.utc(targetDateTimeString || '2021-10-02 03:00:00', 'YYYY-MM-DD HH:mm:ss');
+    const initialMoment = moment.utc(targetDateTimeString, 'YYYY-MM-DD HH:mm:ss');
     let [duration, setDuration] = useState(null);
 
     useInterval(() => {
         const currentMoment = moment();
-        console.log(moment.duration(currentMoment.diff(initialMoment)));
         setDuration(moment.duration(currentMoment.diff(initialMoment)));
     }, 1000);
 

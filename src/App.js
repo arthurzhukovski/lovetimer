@@ -1,32 +1,40 @@
 import * as styles from './App.module.css';
 import Timer from './components/Timer';
 import {Helmet, HelmetProvider} from 'react-helmet-async';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import StarsBackground from './components/StarsBackground';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 function App() {
-  return (
-    <div className={styles.app}>
-        <StarsBackground/>
-        <BrowserRouter basename='/'>
-            <Switch>
-                <Route exact path='/november-2021' >
-                    <Timer targetDateTimeString='2021-11-20 00:10:00' textLabel={'Посадка в Минске в ноябре 2021 ❤️'}/>
-                </Route>
-                <Route>
-                    <Timer/>
-                </Route>
-            </Switch>
-        </BrowserRouter>
-        <HelmetProvider>
-            <Helmet>
-                <script src='/lib/TweenMax.min.js' type='text/javascript' />
-                <script src='/lib/msvg.js' type='text/javascript' />
-            </Helmet>
-        </HelmetProvider>
-    </div>
-  );
+    const [routes, setRoutes] = useState([]);
+    useEffect(() => {
+        fetch('routes.json').then(async routes => {
+            setRoutes(await routes.json().catch(() => []));
+        }).catch(() => {
+            console.log('Необходимо добавить в корень файл с путями routes.json формата [{"path": "...", "utcDateTime": "YYYY-MM-DD HH:mm:ss", "label": "..."}, ...]')
+        });
+    }, []);
+
+    return (
+        <div className={styles.app}>
+            <StarsBackground/>
+            <BrowserRouter basename='/'>
+                <Switch>
+                    {routes.map((r, k) => <Route key={k} exact path={r.path}>
+                        <Timer targetDateTimeString={r.utcDateTime} textLabel={r.label}/>
+                    </Route>)}
+                </Switch>
+            </BrowserRouter>
+            <HelmetProvider>
+                <Helmet>
+                    {routes?.length ? <>
+                        <script src='/lib/TweenMax.min.js' type='text/javascript' />
+                        <script src='/lib/msvg.js' type='text/javascript' />
+                    </> : ''}
+                </Helmet>
+            </HelmetProvider>
+        </div>
+    );
 }
 
 export default App;

@@ -11,8 +11,12 @@ const NumberImage = ({number}) => {
             if(window.TimelineMax){
                 const tl = new window.TimelineMax();
                 const tl2 = new window.TimelineMax();
-                tl.to(numberRef.current.getElementsByClassName(`number0`)[0], .5, {morphSVG: numberRef.current.getElementsByClassName(`number${number}`)[0], ease:window.Power3.easeInOut},'+=.5').play();
-                tl2.to(numberAnimRef.current.getElementsByClassName(`number0`)[0], .5, {morphSVG: numberAnimRef.current.getElementsByClassName(`number${number}`)[0], ease:window.Power3.easeInOut},'+=.5').play();
+                tl.to(numberRef.current.getElementsByClassName(`number0`)[0], .5,
+                    {morphSVG: numberRef.current.getElementsByClassName(`number${number}`)[0],
+                        ease:window.Power3.easeInOut},'+=.5').play();
+                tl2.to(numberAnimRef.current.getElementsByClassName(`number0`)[0],
+                    .5, {morphSVG: numberAnimRef.current.getElementsByClassName(`number${number}`)[0],
+                        ease:window.Power3.easeInOut},'+=.5').play();
             }
         }
     });
