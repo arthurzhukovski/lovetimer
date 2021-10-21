@@ -3,7 +3,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
 const SwipeContainer = ({children, callback}) => {
-    const swipePxOffset = 150;
+    const swipePxOffset = 100;
     const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
     const bind = useGesture({
             onDrag: ({ down, movement: [mx] }) => api.start({ x: down ? mx : 0, immediate: down }),

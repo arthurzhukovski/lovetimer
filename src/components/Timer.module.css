@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: initAnimationWrapper 2s ease;
 }
 
 .timerElementsContainer{
@@ -23,6 +24,7 @@
     bottom: 20px;
     color: white;
     font-size: 12px;
+    animation: initAnimationLabel .8s ease;
 }
 
 @media (orientation: portrait) {
@@ -40,5 +42,34 @@
     .timerElementsContainer{
         display: flex;
         flex-wrap: nowrap;
+    }
+}
+
+@keyframes initAnimationWrapper{
+    0% {
+        transform: translateY(500px);
+        opacity: 0;
+    }
+    25% {
+        transform: translateY(0);
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes initAnimationLabel{
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
     }
 }

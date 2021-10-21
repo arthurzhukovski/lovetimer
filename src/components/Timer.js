@@ -7,7 +7,7 @@ import TimeElement from './TimeElement';
 const Timer = ({targetDateTimeString, textLabel}) => {
     moment.locale('ru');
     const initialMoment = moment.utc(targetDateTimeString, 'YYYY-MM-DD HH:mm:ss');
-    let [duration, setDuration] = useState(null);
+    let [duration, setDuration] = useState(moment.duration());
 
     useInterval(() => {
         const currentMoment = moment();

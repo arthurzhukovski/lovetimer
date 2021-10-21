@@ -7,6 +7,7 @@ const TimeElement = ({value, label}) => {
     const [labels, setLabels] = useState({});
     const firstDigit = value?.toString().length > 1 ? value?.toString().slice(0, 1) : 0;
     const lastDigit = value?.toString().slice(-1);
+    const labelChangeDelayMs = 800;
     useEffect(() => {
         const timeout = setTimeout(() => {
             if ((value >= 11 && value <= 19) || ['5','6','7','8','9','0'].indexOf(lastDigit) !== -1){
@@ -37,7 +38,7 @@ const TimeElement = ({value, label}) => {
                     seconds: 'секунда',
                 })
             }
-        }, 1000);
+        }, labelChangeDelayMs);
         return () => {
             clearTimeout(timeout);
         }
