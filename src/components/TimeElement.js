@@ -3,6 +3,7 @@ import * as styles from './TimeElement.module.css';
 import NumberImage from './NumberImage';
 
 const TimeElement = ({value, label}) => {
+    value = typeof value === 'undefined' ? 0 : parseInt(value);
     value = value < 0 ? value * -1 : value;
     const [labels, setLabels] = useState({});
     const firstDigit = value?.toString().length > 1 ? value?.toString().slice(0, 1) : 0;
